@@ -1,9 +1,16 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Home } from "./pages/home/Home"
+import Homec from "./pages/homec"
 
 function App() {
   return (
-    <div>
-      <h1 className="text-green-400 font-semibold text-lg">teste</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/homec" element={<Homec />}/>
+      </Routes>
+    </BrowserRouter>
+    
   )
 }
 
