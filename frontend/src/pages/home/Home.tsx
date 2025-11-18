@@ -95,7 +95,7 @@ export function Home() {
 
                 <div 
                     className='flex justify-around items-center bg-blue-700 w-full mt-8
-                    p-16'
+                    py-20'
                 >
                     <div className='flex items-center'>
                         <strong className='text-white font-bold text-2xl text-center'>
@@ -129,7 +129,7 @@ export function Home() {
                 <div className='mt-24 px-20'>
                     <div className='w-full'>
                         {/* Change company name later */}
-                        <h2 className='text-black font-bold text-3xl text-center'>Why choose EnglishAI?</h2>
+                        <h2 className='text-black font-bold text-4xl text-center'>Why choose EnglishAI?</h2>
                         <h3 className='text-gray-600 text-center mt-4 text-[1.1rem]'>Cutting-edge technology to accelerate your progress</h3>
                     </div>
 
@@ -160,9 +160,9 @@ export function Home() {
                     </div>
                 </div>
 
-                <div className='mt-16 px-20'>
+                <div className='mt-20 px-20'>
                     <div className='w-full'>
-                        <h2 className='text-black font-bold text-3xl text-center'>How does it work?</h2>
+                        <h2 className='text-black font-bold text-4xl text-center'>How does it work?</h2>
                         <h3 className='text-gray-600 text-center'>Simple, efficient and custom</h3>
                     </div>
 
@@ -207,7 +207,7 @@ export function Home() {
 
                 <div className='mt-16 px-20'>
                     <div className='w-full'>
-                        <h2 className='text-black font-bold text-3xl text-center'>Choose your plan</h2>
+                        <h2 className='text-black font-bold text-4xl text-center'>Choose your plan</h2>
                         <h3 className='text-gray text-center mt-4'>Invest on your future today</h3>
                     </div>
 
@@ -305,6 +305,109 @@ export function Home() {
                         </div>
                     </div>
                 </div>
+
+                <div className='mt-32 px-20'>
+                    <h2 className='text-black font-bold text-4xl text-center'>What our students say</h2>
+
+                    <div className='grid grid-cols-3'>
+                        <div className='p-4 flex flex-col gap-y-4 shadow-sm'>
+                            <div className='flex text-yellow-500'>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                            </div>
+
+                            <q className='text-gray-700 italic'>"In 3 months i drastically improved my fluency"</q>
+
+                            <div className='flex gap-x-4'>
+                                <div 
+                                    className='w-10 h-10 flex items-center justify-center rounded-full
+                                    bg-green-200'
+                                >
+                                    <FaUsers className='text-blue-700'/>
+                                </div>
+
+                                <div>
+                                    <h2 className='text-black font-semibold'>Maria Silva</h2>
+                                    <h3 className='text-gray-500 text-[0.9rem]'>Student</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='p-4 flex flex-col gap-y-4'>
+                            <div className='flex text-yellow-500'>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                            </div>
+
+                            <q className='text-gray-700 italic'>""The AI understands my difficulties and focuses exactly on what I need.""</q>
+
+                            <div className='flex gap-x-4'>
+                                <div 
+                                    className='w-10 h-10 flex items-center justify-center rounded-full
+                                    bg-green-200'
+                                >
+                                    <FaUsers className='text-blue-700'/>
+                                </div>
+
+                                <div>
+                                    <h2 className='text-black font-semibold'>John Santos</h2>
+                                    <h3 className='text-gray-500 text-[0.9rem]'>Professional</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='p-4 flex flex-col gap-y-4'>
+                            <div className='flex text-yellow-500'>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                            </div>
+
+                            <q className='text-gray-700 italic'>"I've never seen such an efficient tool for learning languages."</q>
+
+                            <div className='flex gap-x-4'>
+                                <div 
+                                    className='w-10 h-10 flex items-center justify-center rounded-full
+                                    bg-green-200'
+                                >
+                                    <FaUsers className='text-blue-700'/>
+                                </div>
+
+                                <div>
+                                    <h2 className='text-black font-semibold'>Anna Costa</h2>
+                                    <h3 className='text-gray-500 text-[0.9rem]'>Teacher</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div 
+                    className='w-full bg-linear-to-r from-blue-600 to-purple-600 py-20
+                    flex items-center justify-center flex-col gap-y-8 mt-16'
+                >
+                    <h2 className='text-center text-white text-4xl font-bold'>Ready to start your journey?</h2>
+                    <h3 className='text-center text-white font-semibold'>Join thousands of students who are already transforming their lives</h3>
+
+                    <button 
+                        className='rounded-lg text-blue-600 font-semibold bg-white px-10 py-4
+                        text-lg' 
+                    >
+                        Start free now
+                    </button>
+                </div>
+
+                <footer>
+
+                </footer>
             </main>
         </div>
     )
