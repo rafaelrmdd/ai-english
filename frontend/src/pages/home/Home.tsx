@@ -1,7 +1,26 @@
 import { FaBrain, FaMicrophone, FaBook, FaChartLine, FaUsers, FaStar, FaPlay, FaCheck, FaArrowRight } from 'react-icons/fa';
 import { Header } from './components/Header';
+import { GoogleGenAI } from '@google/genai';
+import { useEffect } from 'react';
 
 export function Home() {
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+    useEffect(() => {
+        const test = async () => {
+            const ai = new GoogleGenAI({apiKey});
+
+            const response = await ai.models.generateContent({
+                model: "gemini-2.5-flash",
+                contents: "Explain how AI works in a few words",
+            });
+
+            console.log('response: ', response.text);
+        }
+
+        test();
+    }, [])
+
     return (
         <div>
             <Header />
