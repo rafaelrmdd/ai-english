@@ -1,8 +1,39 @@
-import { FaRobot, FaMicrophone, FaPaperPlane, FaBook, FaLightbulb, FaVolumeUp, FaPaperclip, FaSmile } from 'react-icons/fa';
+import { FaRobot, FaMicrophone, FaPaperPlane, FaBook, FaLightbulb, FaVolumeUp, FaPaperclip, FaSmile, FaUser } from 'react-icons/fa';
 import { RightBar } from './components/RightBar';
 import { LeftBar } from './components/LeftBar';
+import { GoogleGenAI } from '@google/genai';
 
 export function Chat() {
+    //Change name later...
+    type Button = React.MouseEvent<HTMLButtonElement>;
+
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const ai = new GoogleGenAI({apiKey});
+
+    //AI context
+    const chat = ai.chats.create({
+        model: "gemini-2.5-flash",
+        history: [
+            {
+                role: "user",
+                parts: [{text: "For all our conversation, act and answer like an English teacher"}]
+            },
+            {
+                role: "model",
+                parts: [{text: "Understood! I'll act as your English teacher throughout our conversation. How may I help you today?"}]
+            }
+        ]
+    });
+    
+    const handleClick = async (event: Button) => {
+        const prompt = event.currentTarget;
+
+        const response = await chat.sendMessage({ message: `${prompt}` });
+        
+        console.log('response: ', response.text);
+    };
+
+
     return (
         <div className="flex items-start">
             <LeftBar />
@@ -44,8 +75,45 @@ export function Chat() {
 
                 <section className='h-full p-8'>
                     {/* Chat history */}
-                    <div className='w-full h-96 bg-black'>
-                        
+                    <div className='flex flex-col gap-y-8 w-full h-96'>
+                        {/* Ai message model */}
+                        <div className='flex gap-x-4'>
+                            <div 
+                                className="flex items-center justify-center w-10 h-10 rounded-full
+                                bg-linear-to-r from-blue-500 to-purple-500"
+                            >
+                                <FaRobot className='text-white' size={20}/>
+                            </div>
+
+                            <div>
+                                <div className='px-6 py-4 border border-gray-200 rounded-2xl shadow-md p'>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, amet?</p>
+                                </div>
+
+                                <span className='text-gray-500 text-[0.8rem]'>10:30 AM</span>
+                            </div>
+                        </div>
+
+                        {/* User message model */}
+                        <div className='flex gap-x-4 justify-end'>
+                            <div>
+                                <div 
+                                    className='px-6 py-4 border border-gray-200 rounded-2xl shadow-md p
+                                    bg-blue-600'
+                                >
+                                    <p className='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, amet?</p>
+                                </div>
+
+                                <span className='text-gray-500 text-[0.8rem] text-end block'>10:30 AM</span>
+                            </div>
+
+                            <div 
+                                className="flex items-center justify-center w-10 h-10 rounded-full
+                                bg-linear-to-r from-gray-700 to-black"
+                            >
+                                <FaUser className='text-white' size={20}/>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Chat type bar*/}
@@ -88,6 +156,7 @@ export function Chat() {
                             </div>
 
                             <button 
+                                onClick={(e: Button) => handleClick(e)}
                                 className='flex items-center gap-x-3 bg-blue-600 px-6 py-4 font-bold 
                                 text-white rounded-2xl hover:bg-blue-700 transition duration-150'
                             >
